@@ -1,0 +1,17 @@
+<%- include('header') -%>
+
+<center><h1><b>Új Ország</b></h1></center>
+<div>
+  <form action="/orszag/new" autocomplete="off"" method="POST">
+    <p>Ország neve:</p>
+    <input type="text" id="nev" name="nev" placeholder="Ország" value="<%= (typeof orszag === 'undefined') ? '' : orszag.nev %>"><br>
+    <p>Szuvenír:</p>
+    <input type="text" id="szuvenir" name="szuvenir" placeholder="Szuvenír" value="<%= (typeof orszag === 'undefined') ? '' : orszag.szuvenir %>"><br>
+    <p>Rating:</p>
+    <input type="text" id="rating" name="rating" placeholder="?/5 (csak a számot kell beírni)" maxlength="4" value="<%= (typeof orszag === 'undefined') ? '' : orszag.rating %>"><br><br>
+    <input type="submit" value="Mentés">
+  </form> 
+</div>
+<p style="padding-top: 15%; position: fixed; bottom: 0px; left: 10px"><a href="/" class="button primary new" style="text-decoration: none; background-color: #6fb872; font-size: 20px; font-family: Fredoka;">&#8617; Vissza</a></p>
+
+<%- include('footer') -%>

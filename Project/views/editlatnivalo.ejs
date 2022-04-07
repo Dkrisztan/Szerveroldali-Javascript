@@ -1,0 +1,13 @@
+<%- include('header') -%>
+
+<center><h1><b>Látnivaló Módosítása</b></h1></center>
+<div>
+  <form action="/latnivalo/<%= orszag._id %>" autocomplete="off" method="POST">
+    <p>Látnivaló neve:</p>
+    <input type="text" id="nev" name="nev" value="<%= (typeof latnivalo === 'undefined') ? '' : latnivalo.nev %>"><br>  <!-- a value helyére fog majd kerulni az adott id-hez tartozó látnivaló neve -->
+    <input type="submit" value="Mentés">
+  </form> 
+</div>
+<p style="padding-top: 15%; position: fixed; bottom: 0px; left: 10px"><a href="/latnivalo/<%= orszag._id %>" class="button primary new" style="text-decoration: none; background-color: #6fb872; font-size: 20px; font-family: Fredoka;">&#8617; Vissza</a></p>
+
+<%- include('footer') -%>

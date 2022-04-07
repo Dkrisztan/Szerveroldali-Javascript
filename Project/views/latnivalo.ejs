@@ -1,0 +1,25 @@
+<%- include('header') -%>
+
+<center><h1><b><%= orszag.nev %> Látnivalói</b></h1></center>
+<center><a href="/latnivalo/<%= orszag._id %>/new" class="button primary save" style="width: auto; font-size: 20px; font-weight: bold; text-decoration: none; font-family: Fredoka;">Új Látnivaló</a></center></br>
+
+<table style="margin-left: auto; margin-right: auto;">
+  <tr>
+    <th>Látnivaló neve</th>
+    <th>Opciók</th>
+  </tr>
+  <% latnivalok.forEach(function(egyLatnivalo){ %>
+  <tr>
+    <td>
+      <%= egyLatnivalo.nev %>
+    </td>
+    <td>
+      <a href="/latnivalo/<%= orszag._id %>/edit/<%= egyLatnivalo._id %>" class="button touch edit"></a>
+      <a href="/latnivalo/<%= orszag._id %>/delete/<%= egyLatnivalo._id %>" class="button touch delete"></a>
+    </td>
+  </tr>
+  <% }); %>
+</table>
+<p style="padding-top: 15%; position: fixed; bottom: 0px; left: 10px"><a href="/" class="button primary new" style="text-decoration: none; background-color: #6fb872; font-size: 20px; font-family: Fredoka;">&#8617; Vissza</a></p>
+
+<%- include('footer') -%>

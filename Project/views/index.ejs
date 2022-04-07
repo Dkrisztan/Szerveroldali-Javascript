@@ -1,0 +1,32 @@
+<%- include('header') -%>
+
+<center><h1><b>Országok és Látnivalók</b></h1></center>
+<center><a href="/orszag/new" class="button primary save" style="width: auto; font-size: 20px; font-weight: bold; text-decoration: none; font-family: Fredoka;">Új Ország</a></center></br>
+<table style="margin-left: auto; margin-right: auto;">
+  <tr>
+    <th>Ország</th>
+    <th>Szuvenír</th>
+    <th>Rating</th>
+    <th>Opciók</th>
+  </tr>
+  <% orszagok.forEach(function(egyOrszag){ %>
+  <tr>
+    <td>
+      <%= egyOrszag.nev %>
+    </td>
+    <td>
+      <%= egyOrszag.szuvenir %>
+    </td>
+    <td><center>
+      <%= egyOrszag.rating %>
+    </center></td>
+    <td>
+      <a href="/latnivalo/<%= egyOrszag._id %>" class="button primary new" style="color: hsla(0, 0%, 0%, 0.600); font-weight: bold; font-family: Fredoka; text-decoration: none;">Látnivalók</a>
+      <a href="/orszag/<%= egyOrszag._id %>/edit" class="button touch edit"></a>
+      <a href="/orszag/<%= egyOrszag._id %>/delete" class="button touch delete"></a>
+    </td>
+  </tr>
+  <% }); %>
+</table>
+
+<%- include('footer') -%>

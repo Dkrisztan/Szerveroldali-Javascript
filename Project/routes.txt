@@ -1,0 +1,50 @@
+ ------------------------
+| Országok És Látnivalók |
+ ------------------------
+
+- index.html - az országok kilistázva táblázatba, mellettük gomb (látnivalók, edit, delete), ileltve új ország gomb is
+- neworszag.html - új ország létrehozása submit gomb
+- editorszag.html - ország modosítása
+- latnivalo.html - látnivalók kilistázva táblázatba, mellettük gomb (edit, delete)
+- newlatnivalo.html - úl látnivaló létrehozása submit gomb
+- editlatnivalo.html - látnivaló modosítása
+
+ -------
+|Routing|
+ -------
+
+ Method |   Route                                               | Mi történik
+
+ GET    |   /                                                   | index.html   (itt lesznek az országok kilistázva -- edit, delete)
+ USE    |   /orszag/new                                         | neworszag.html  új ország létrehozása
+ USE    |   /orszag/:orszagid/edit                              | editorszag.html  ország modosítása
+ GET    |   /orszag/:orszagid/delete                            | ország törlése
+ GET    |   /latnivalo/:orszagid                                | latnivalo.html  ország látnivalói
+ USE    |   /latnivalo/:orszagid/new                            | uj latnivalo létrehozása
+ USE    |   /latnivalo/:orszagid/edit/:latnivaloid              | latnivalo modosítása
+ GET    |   /latnivalo/:orszagid/delete/:latnivaloid            | latnivalo törlése
+
+  -----------
+| Middlewares |
+  -----------
+
+renderMW --> megjeleníti a html adatokat
+
+Országok
+--------
+getOrszagok   --> adatbázisból kinyeri az országokat és kilistázza őket --> res.locals.orszagok
+getOrszag   --> :orszagid alapján nyeri ki adatbázisból az adott országot --> res.locals.orszag
+saveOrszag  --> elmenti a változtatásokat
+newOrszag --> létrehoz egy új országot
+deleteOrszag  --> :orszagid res.locals.orszag alatti országot törli
+modifyOrszag  --> :orszagid res.locals.orszag alatti országot módosítja és menti el adatbázisba
+
+
+Latnivalók
+----------
+getLatnivalok   --> adatbázisból kinyeri egy ország látnivalóit és kilistázza őket --> res.locals.orszag.latnivalok
+getLatnivalo    --> :orszagid és :latnivaloid alapján adatbázisból kinyeri egy ország egy adott látnivalóját --> res.locals.orszag.latnivalo
+saveLatnivalo --> elmenti a változtatásokat
+newLatnivalo  --> :orszagid -hoz létrehoz egy új látnivalót 
+deleteLatnivalo --> :orszagid és :latnivaloid res.locals.orszag.latnivalo alatti látnivalót törli
+modifyLatnivalo --> :orszagid és :latnivaloid res.locals.orszag.latnivalo alatti látnivalót modosítja
