@@ -53,6 +53,7 @@ module.exports = function(app) {
     getOrszagMW(objRepo),
     getLatnivaloMW(objRepo),
     saveLatnivaloMW(objRepo),
+    getLatnivalokMW(objRepo), //! ez nem biztos hogy kell ide
     renderMW(objRepo, 'editlatnivalo')
   );
 

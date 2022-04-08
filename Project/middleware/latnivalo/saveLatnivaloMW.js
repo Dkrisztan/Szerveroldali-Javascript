@@ -13,8 +13,12 @@ module.exports = function(objectrepository) {
       res.locals.latnivalo = new LatnivaloModel();
     }
 
+    console.log(res.locals.latnivalo.nev);
+    console.log(req.body.nev);
+
     res.locals.latnivalo.nev = req.body.nev;
     res.locals.latnivalo._orszag = res.locals.orszag._id;
+
 
     res.locals.latnivalo.save(err => {
       if (err) {
