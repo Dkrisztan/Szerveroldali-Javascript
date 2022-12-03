@@ -2,7 +2,7 @@
 
 <center><h1><b>Ország Módosítása</b></h1></center>
 <div>
-  <form action="/" autocomplete="off" method="POST">
+  <form action="/<%= (typeof orszag === 'undefined') ? '' : 'orszag/'+orszag._id+'/edit' %>" autocomplete="off" method="POST">
     <p>Ország neve:</p>
     <input type="text" id="nev" name="nev" value="<%= (typeof orszag === 'undefined') ? '' : orszag.nev %>"><br>
     <p>Szuvenír:</p>

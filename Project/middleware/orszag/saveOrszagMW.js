@@ -2,7 +2,7 @@ const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
   const OrszagModel = requireOption(objectrepository, 'OrszagModel');
-  return (req, res, next) => {
+  return function(req, res, next) {
     
     if (
       typeof req.body.nev === 'undefined' ||
